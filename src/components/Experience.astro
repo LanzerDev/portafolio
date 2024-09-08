@@ -1,0 +1,45 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Septiembre 2022 - Actualidad...",
+    title: "Programador",
+    company: "Coppel",
+    description:
+      "Programador full-stack en el area de personal y recursos humanos. Especialista en bases de datos con un profundo conocimiento de SQL y procedimientos almacenados. Diseñé y optimice bases de datos relacionales para soportar transacciones de alto volumen y generar reportes personalizados.",
+    link: "",
+  },
+  {
+    date: "Enero 2024 - Agosto 2024",
+    title: "Backend Developer",
+    company: "Whipple - SIR",
+    description:
+      "Desarrollo freelance de un sistema backend centralizado para un ecositema de 3 aplicaciones (FrontOffice, BackOffice, Mobile) enfocado en la recoleccion de diversos residuos, para una empresa con +20 Años en el sector.",
+  },
+  {
+    date: "Agosto 2023 - Noviembre 2023",
+    title: "Frontend Developer",
+    company: "TravelArt",
+    description:
+      "Desarrollo freelance. Remediacion y mantenimiento de la UI para un sistema de gestion y planificacion de vuelos, implementacion de API's y sistemas integrados con SABRE.",
+  },
+  {
+    date: "Enero 2022 - Junio 2022",
+    title: "Frontend Developer",
+    company: "Duoseptem",
+    description:
+      "Desarrollo de un sistema CRM para manejo de inventarios en una empresa de materiales de ferreteria.",
+  }
+
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
