@@ -1,11 +1,5 @@
-# 👨🏻‍💻 portafolio-lanzerdev para programadores y desarrolladores
+# 👨🏻‍💻 portafolio dev para programadores y desarrolladores
 
-<div align="center">
-<a href="https://portafolio-lanzerdev.dev/">
-<img src="./public/portafolio-lanzerdev.webp">
-</a>
-<p></p>
-</div>
 
 <div align="center">
 
@@ -18,10 +12,3 @@
 
 </div>
 
-## 🫂 Contribuidores
-
-<a href="https://github.com/midudev/portafolio-lanzerdev.dev/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=midudev/portafolio-lanzerdev.dev" />
-</a>
-
-<p></p>
