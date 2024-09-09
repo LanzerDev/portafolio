@@ -1,5 +1,5 @@
 {
-  "name": "porfolio-dev",
+  "name": "portafolio-lanzerdev",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -15,7 +15,8 @@
     "@fontsource-variable/onest": "5.0.2",
     "astro": "4.4.5",
     "astro-robots-txt": "1.0.0",
-    "porfolio-dev": "file:",
+    "portafolio-lanzerdev": "file:",
+    "portafolio-lanzerdev-dev": "file:",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
   }
