@@ -15,7 +15,7 @@
     "@astrojs/vercel": "^2.4.0",
     "@fontsource-variable/onest": "^5.0.6",
     "@fontsource/onest": "^5.0.6",
-    "astro": "^0.17.3",
+    "astro": "^4.15.4",
     "astro-robots-txt": "1.0.0",
     "portafolio-lanzerdev": "file:",
     "portafolio-lanzerdev-dev": "file:",
