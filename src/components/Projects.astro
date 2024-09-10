@@ -4,6 +4,10 @@ import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import Link from "./icons/Link.astro"
 import LinkButton from "./LinkButton.astro"
+import React from "./icons/React.astro"
+import MaterialUI from "./icons/MaterialUI.astro"
+import Framer from "./icons/Framer.astro"
+import Express from "./icons/Express.astro"
 
 const TAGS = {
   NEXT: {
@@ -16,24 +20,45 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  REACT: {
+    name: "React",
+    class: "bg-black text-white",
+    icon: React
+  },
+  MATERIAL: {
+    name: "Material UI",
+    class: "bg-[#003159] text-white",
+    icon: MaterialUI,
+  },
+  FRAMER: {
+    name: "Framer",
+    class: "bg-[#003159] text-white",
+    icon: Framer
+  },
+  EXPRESS: {
+    name: "Express",
+    class: "bg-black text-white",
+    icon: Express
+  }
 }
 const PROJECTS = [
   {
-    title: "SVGL - A beautiful library with SVG logos",
+    title: "Movie Rating - React Challenge",
     description:
-      "Biblioteca de logos SVG de las marcas más populares. +10k visitas al mes. +2K svgs descargados. Creado desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://svgl.vercel.app/",
-    github: "https://github.com/pheralb/svgl",
-    image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Aplicacion en react que realice como prueba tecnica para trabajar en travel art, conectada a la api de imagenes de google",
+    link: "https://challenge-react-4w6ktsc1w-lanzerdevs-projects.vercel.app/",
+    github: "https://github.com/LanzerDev/challenge-react",
+    image: "/projects/challenge-react.png",
+    tags: [TAGS.REACT, TAGS.MATERIAL, TAGS.EXPRESS],
   },
   {
-    title: "AdventJS - Retos de programación con JavaScript y TypeScript",
+    title: "Rock Paper Scissors - React Game",
     description:
-      "Plataforma gratuita con retos de programación. Más de 1 millón de visitas en un mes. +50K retos completados. Creada desde cero con Next.js, React y Tailwind CSS.",
-    link: "https://adventjs.dev",
-    image: "/projects/adventjs.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+      "Juego de piedra papel o tijera, Creado por hobbie y para probar Framer Motion",
+    link: "https://lanzerdev.github.io/rps_react/",
+    github: "https://github.com/LanzerDev/rps_react",
+    image: "/projects/rps.png",
+    tags: [TAGS.REACT, TAGS.FRAMER],
   },
 ]
 ---

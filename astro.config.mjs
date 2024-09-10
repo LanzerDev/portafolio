@@ -10,4 +10,9 @@ export default defineConfig({
   site: 'https://portafolio-lanzerdev.dev/',
   output: 'server',
   adapter: vercel(),
+  vite: {
+    ssr: {
+      noExternal: ['@fontsource-variable']
+    }
+  }
 })
