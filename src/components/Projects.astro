@@ -8,6 +8,7 @@ import React from "./icons/React.astro"
 import MaterialUI from "./icons/MaterialUI.astro"
 import Framer from "./icons/Framer.astro"
 import Express from "./icons/Express.astro"
+import Supabase from "./icons/Supabase.astro"
 
 const TAGS = {
   NEXT: {
@@ -39,26 +40,32 @@ const TAGS = {
     name: "Express",
     class: "bg-black text-white",
     icon: Express
+  },
+  SUPABASE: {
+    name: "Supabase",
+    class: "bg-[#1e6d3a] text-white",
+    icon: Supabase
   }
 }
+
 const PROJECTS = [
   {
-    title: "Movie Rating - React Challenge",
+    title: "Sinfila - Customer",
     description:
-      "Aplicación en React que realicé como prueba técnica para trabajar en Travel Art, conectada a la api de imágenes de Google mediante un middleware en express.",
-    link: "https://challenge-react-neon.vercel.app/",
+      "Next.js B2B Reservation Platform - Una aplicacion para crear reservaciones o entrar fila virtual en restaurantes.",
+    link: "https://sinfila-customer.vercel.app/",
     github: "https://github.com/LanzerDev/challenge-react",
-    image: "/projects/challenge-react.webp",
-    tags: [TAGS.REACT, TAGS.MATERIAL, TAGS.EXPRESS],
+    image: "/sinfila-customer.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.SUPABASE],
   },
   {
-    title: "Rock Paper Scissors - React Game",
+    title: "Sinfila - Backoffice",
     description:
-      "Juego de piedra papel o tijera, creado como hobbie y para probar Framer Motion.",
-    link: "https://lanzerdev.github.io/rps_react/",
+      "Next.js Backoffice Platform - Una aplicacion para gestionar las sucursales, reservaciones y clientes en los restaurantes.",
+    link: "https://sinfila-backoffice.vercel.app/",
     github: "https://github.com/LanzerDev/rps_react",
-    image: "/projects/rps.webp",
-    tags: [TAGS.REACT, TAGS.FRAMER],
+    image: "/sinfila-backoffice.png",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.SUPABASE],
   },
 ]
 ---
