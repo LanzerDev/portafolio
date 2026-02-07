@@ -1,0 +1,339 @@
+{
+  "meta": {
+    "title": "Lanzer's Portfolio - Full Stack Developer with 3+ years of experience",
+    "description": "Hire LanzerDev, a Web Developer specialized in creating unique applications."
+  },
+  "hero": {
+    "greeting": "Hey, I'm Lanzer",
+    "badge": "Available for work",
+    "description": "+3 years of experience.",
+    "role": "Full Stack Web Developer",
+    "tagline": "specializing in backend development.",
+    "motto": "I never stop learning."
+  },
+  "nav": {
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "about": "About Me"
+  },
+  "sections": {
+    "experience": "Work Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "about": "About Me",
+    "contact": "Contact"
+  },
+  "contact": {
+    "email": "lanzerdev20@gmail.com",
+    "phone": "+52 6673941521",
+    "linkedin": "https://www.linkedin.com/in/lanzer-antuan-cabanillas-lopez-2b0263229/",
+    "github": "https://github.com/lanzerdev",
+    "website": "https://portafolio-theta-dusky.vercel.app/",
+    "location": "Culiacán, Sinaloa, Mexico",
+    "contactMe": "Contact Me"
+  },
+  "experience": [
+    {
+      "date": "September 2024 - May 2025",
+      "title": "Full Stack Developer",
+      "company": "PVNUBE",
+      "location": "Culiacán, Sinaloa",
+      "description": "Led the development and maintenance of critical modules for a manufacturing-focused ERP system, ensuring flexibility for various business types.",
+      "achievements": [
+        "Critical Module Development: Designed and implemented the Production and Projects module, optimizing process control for manufacturing companies.",
+        "Full Stack Maintenance: Maintained and scaled the existing architecture, ensuring system operational stability."
+      ],
+      "techStack": [
+        "PHP",
+        "jQuery",
+        "SQL",
+        "HTML5",
+        "CSS3"
+      ]
+    },
+    {
+      "date": "September 2022 - September 2024",
+      "title": "Software Developer",
+      "company": "Grupo Coppel",
+      "location": "Culiacán, Sinaloa",
+      "description": "Collaborated in the full corporate software development lifecycle, from maintaining legacy systems to implementing new cloud architectures.",
+      "achievements": [
+        "System Modernization: Participated in the development of the Cocrea system using a modern microservices-based architecture.",
+        "Security & Integration: Implemented secure authentication using Microsoft Entra ID (Azure).",
+        "Software Quality: Designed and executed automated test suites for APIs using Postman, reducing production errors.",
+        "Backend & Legacy: Developed Stored Procedures in SQL Server and maintained critical components in C# (WinForms) and C++."
+      ],
+      "techStack": [
+        "C#",
+        ".NET",
+        "Angular",
+        "Spring Boot",
+        "SQL Server",
+        "Azure",
+        "C++",
+        "Postman"
+      ]
+    },
+    {
+      "date": "January 2024 - August 2024",
+      "title": "Full Stack Developer & Consultant",
+      "company": "Freelance Projects",
+      "location": "Remote",
+      "description": "Developed custom solutions for clients in various sectors, managing everything from requirements gathering to deployment.",
+      "achievements": [
+        "Centralized Architecture: Created a unified backend in Python (Flask) to orchestrate an ecosystem of three applications (Backoffice, Frontoffice, and Mobile) with PostgreSQL.",
+        "Management Systems (SIR): Developed a comprehensive waste collection system for a company with 20 years in the sector.",
+        "CRM Maintenance: Support and optimization of a React-based CRM for a travel agency."
+      ],
+      "techStack": [
+        "Python",
+        "Flask",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "React",
+        "JavaScript"
+      ]
+    },
+    {
+      "date": "January 2022 - June 2022",
+      "title": "Backend Developer",
+      "company": "DUOSEPTEM",
+      "location": "Remote",
+      "description": "Development of RESTful APIs and efficient connection with Angular frontend clients.",
+      "achievements": [
+        "Development of RESTful APIs and efficient connection with Angular frontend clients.",
+        "Implementation of business logic for Tessiuto's CRM and ERP systems."
+      ],
+      "techStack": [
+        "Express.js",
+        "Angular",
+        "MySQL",
+        "Node.js"
+      ]
+    },
+    {
+      "date": "2 months",
+      "title": "Systems Technician (Intern)",
+      "company": "Bancoppel",
+      "location": "Culiacán, Sinaloa",
+      "description": "Execution of the 'Mensajero' system migration project.",
+      "achievements": [
+        "Execution of the 'Mensajero' system migration project, ensuring operational continuity in branches.",
+        "High-level technical support for ATMs and banking peripherals."
+      ],
+      "techStack": []
+    },
+    {
+      "date": "2 months",
+      "title": "Web Developer (Intern)",
+      "company": "ThinkMercadocencia",
+      "location": "Remote",
+      "description": "Development of administration system and dynamic forms.",
+      "achievements": [
+        "Development of administration system and dynamic forms."
+      ],
+      "techStack": [
+        "Angular",
+        "Bootstrap",
+        "Express.js",
+        "MySQL"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Sinfila - Backoffice",
+      "description": "Next.js Backoffice Platform - An application to manage branches, reservations, and customers in restaurants.",
+      "image": "/sinfila-backoffice.png",
+      "link": "https://admin.sinfila.com.mx",
+      "github": "",
+      "tags": [
+        "Next.js",
+        "Tailwind CSS",
+        "Supabase"
+      ]
+    },
+    {
+      "title": "Sinfila - Customer",
+      "description": "Next.js B2B Reservation Platform - An application to create reservations or join virtual queues at restaurants.",
+      "image": "/sinfila-customer.png",
+      "link": "https://app.sinfila.com.mx",
+      "github": "",
+      "tags": [
+        "Next.js",
+        "Tailwind CSS",
+        "Supabase"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Next.js",
+      "icon": "nextjs",
+      "category": "frontend"
+    },
+    {
+      "name": "React",
+      "icon": "react",
+      "category": "frontend"
+    },
+    {
+      "name": "Angular",
+      "icon": "angular",
+      "category": "frontend"
+    },
+    {
+      "name": "HTML",
+      "icon": "html",
+      "category": "frontend"
+    },
+    {
+      "name": "CSS",
+      "icon": "css",
+      "category": "frontend"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "javascript",
+      "category": "frontend"
+    },
+    {
+      "name": "Tailwind",
+      "icon": "tailwind",
+      "category": "frontend"
+    },
+    {
+      "name": "Material UI",
+      "icon": "mui",
+      "category": "frontend"
+    },
+    {
+      "name": "Bootstrap",
+      "icon": "bootstrap",
+      "category": "frontend"
+    },
+    {
+      "name": "Supabase",
+      "icon": "supabase",
+      "category": "backend"
+    },
+    {
+      "name": "Express.js",
+      "icon": "express",
+      "category": "backend"
+    },
+    {
+      "name": "Python",
+      "icon": "python",
+      "category": "backend"
+    },
+    {
+      "name": "Flask",
+      "icon": "flask",
+      "category": "backend"
+    },
+    {
+      "name": "Java",
+      "icon": "java",
+      "category": "backend"
+    },
+    {
+      "name": "Spring Boot",
+      "icon": "spring",
+      "category": "backend"
+    },
+    {
+      "name": "PHP",
+      "icon": "php",
+      "category": "backend"
+    },
+    {
+      "name": "C#",
+      "icon": "csharp",
+      "category": "backend"
+    },
+    {
+      "name": "C++",
+      "icon": "cpp",
+      "category": "backend"
+    },
+    {
+      "name": "SQL",
+      "icon": "sql",
+      "category": "database"
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "postgres",
+      "category": "database"
+    },
+    {
+      "name": "MongoDB",
+      "icon": "mongo",
+      "category": "database"
+    },
+    {
+      "name": "Git",
+      "icon": "git",
+      "category": "tools"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "category": "tools"
+    },
+    {
+      "name": "GitLab",
+      "icon": "gitlab",
+      "category": "tools"
+    },
+    {
+      "name": "CI/CD",
+      "icon": "cicd",
+      "category": "tools"
+    },
+    {
+      "name": "SCRUM",
+      "icon": "scrum",
+      "category": "tools"
+    }
+  ],
+  "education": [
+    {
+      "title": "Programming Technician",
+      "institution": "CBTis224",
+      "description": "Technical education focused on software development fundamentals"
+    },
+    {
+      "title": "Self-taught Enthusiast",
+      "institution": "Platzi",
+      "description": "Continuous learning platform for tech skills"
+    },
+    {
+      "title": "Various Courses",
+      "institution": "Udemy",
+      "description": "Specialized courses in web development"
+    }
+  ],
+  "about": {
+    "intro": "My name is Lanzer Antuan.",
+    "passion": "I love programming,",
+    "hobbies": "reading, and learning.",
+    "journey": "I started programming developing 2D games in Unity as a hobby, 4 years ago.",
+    "experience": "I have 3 years of experience working on real programming projects. I have experience in both frontend and backend. I've worked on everything from legacy systems to S3 implementations, email systems, file systems, notification systems, Docker deployments on AWS, etc.",
+    "strength": "I've never limited myself",
+    "strengthContinued": "to working with just one technology or role.",
+    "workStyle": "In the work environment, I like to work in an organized and proactive manner, document my work, analyze problems, create diagrams that help understand the systems or processes I work on, and collaborate with teams.",
+    "achievement": "Among my achievements, I highlight being able to self-learn any technology needed to solve the daily problems I face as a programmer.",
+    "current": "Currently",
+    "currentProject": "I'm autonomously developing a queue management system for restaurants"
+  },
+  "buttons": {
+    "download": "Download CV",
+    "preview": "Preview",
+    "code": "Code"
+  }
+}

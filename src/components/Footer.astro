@@ -3,27 +3,58 @@ const currentYear = new Date().getFullYear()
 ---
 
 <footer
-  class="opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
+  class="opacity-90 m-4 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10"
 >
   <div
-    class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
+    class="glass-card rounded-xl w-full max-w-screen-xl mx-auto p-6 md:flex md:items-center md:justify-between"
   >
-    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
-      >© {currentYear}
-      <a href="#" class="hover:underline">Lanzerdev</a>. Casi
-      todos los derechos reservados
+    <span class="text-sm sm:text-center text-gray-400">
+      © {currentYear}
+      <a href="#" class="hover:text-primary-400 transition-colors">Lanzerdev</a>.
+      <span class="footer-rights">Casi todos los derechos reservados</span>
     </span>
     <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+      class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-300 sm:mt-0 gap-4"
     >
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a href="/#sobre-mi" class="hover:text-primary-400 transition-colors footer-about">Sobre mí</a>
       </li>
       <li>
-        <a id="contacto" href="mailto:miduga@gmail.com" class="hover:underline"
-          >Contacto</a
+        <a href="mailto:lanzerdev20@gmail.com" class="hover:text-primary-400 transition-colors footer-contact">Contacto</a>
+      </li>
+      <li>
+        <a 
+          href="https://github.com/lanzerdev" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="hover:text-primary-400 transition-colors"
         >
+          GitHub
+        </a>
       </li>
     </ul>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const updateFooter = (lang: string) => {
+      const rightsEl = document.querySelector('.footer-rights')
+      const aboutEl = document.querySelector('.footer-about')
+      const contactEl = document.querySelector('.footer-contact')
+      
+      if (rightsEl) rightsEl.textContent = lang === 'en' ? 'Almost all rights reserved' : 'Casi todos los derechos reservados'
+      if (aboutEl) aboutEl.textContent = lang === 'en' ? 'About Me' : 'Sobre mí'
+      if (contactEl) contactEl.textContent = lang === 'en' ? 'Contact' : 'Contacto'
+    }
+
+    // Initial load
+    const savedLang = localStorage.getItem('portfolio-lang') || 'es'
+    updateFooter(savedLang)
+
+    // Listen for language changes
+    window.addEventListener('languageChange', ((e: CustomEvent) => {
+      updateFooter(e.detail)
+    }) as EventListener)
+  })
+</script>

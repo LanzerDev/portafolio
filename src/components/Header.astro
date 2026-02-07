@@ -1,26 +1,29 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro"
 
 const navItems = [
   {
     title: "Experiencia",
     label: "experiencia",
     url: "/#experiencia",
+    titleEn: "Experience",
   },
   {
     title: "Proyectos",
     label: "proyectos",
     url: "/#proyectos",
+    titleEn: "Projects",
+  },
+  {
+    title: "Habilidades",
+    label: "habilidades",
+    url: "/#habilidades",
+    titleEn: "Skills",
   },
   {
     title: "Sobre mí",
     label: "sobre-mi",
     url: "/#sobre-mi",
-  },
-  {
-    title: "Contacto",
-    label: "contacto",
-    url: "mailto:miduga@gmail.com",
+    titleEn: "About",
   },
 ]
 ---
@@ -29,20 +32,22 @@ const navItems = [
   class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
 >
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+    id="header-nav"
+    class="flex px-3 text-sm font-medium rounded-full text-gray-300 justify-center items-center gap-1"
   >
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
+          class="nav-link relative block px-3 py-2 transition-all hover:text-primary-400"
           aria-label={link.label}
           href={link.url}
+          data-title-es={link.title}
+          data-title-en={link.titleEn}
         >
-          {link.title}
+          <span class="nav-text">{link.title}</span>
         </a>
       ))
     }
-    <ThemeToggle />
   </nav>
 </header>
 
@@ -56,9 +61,9 @@ const navItems = [
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-500")
+              item.classList.add("text-primary-400")
             } else {
-              item.classList.remove("text-blue-500")
+              item.classList.remove("text-primary-400")
             }
           })
         }
@@ -74,6 +79,27 @@ const navItems = [
     sections.forEach((section) => {
       observer.observe(section)
     })
+
+    // Update nav titles on language change
+    const updateNavTitles = (lang: string) => {
+      navItems.forEach((item) => {
+        const titleEs = item.getAttribute('data-title-es')
+        const titleEn = item.getAttribute('data-title-en')
+        const textEl = item.querySelector('.nav-text')
+        if (textEl) {
+          textEl.textContent = lang === 'en' ? titleEn : titleEs
+        }
+      })
+    }
+
+    // Initial load
+    const savedLang = localStorage.getItem('portfolio-lang') || 'es'
+    updateNavTitles(savedLang)
+
+    // Listen for language changes
+    window.addEventListener('languageChange', ((e: CustomEvent) => {
+      updateNavTitles(e.detail)
+    }) as EventListener)
 
     // Cleanup function
     document.onvisibilitychange = () => {
@@ -93,18 +119,35 @@ const navItems = [
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
-  }
-
-  nav {
-    @apply dark:bg-gray-800/90 bg-white/50;
+    @apply bg-slate-900/50;
   }
 
   @keyframes nav-shadown {
     0% {
-      @apply dark:bg-gray-800/0 bg-white/0;
+      @apply bg-slate-900/0;
     }
     to {
-      @apply shadow-lg ring-1 backdrop-blur ring-white/10;
+      @apply shadow-lg ring-1 backdrop-blur-xl ring-primary-500/20 bg-slate-900/80;
     }
+  }
+
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover::after {
+    width: 80%;
   }
 </style>
