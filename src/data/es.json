@@ -1,12 +1,12 @@
 {
     "meta": {
-        "title": "Portafolio de Lanzer - Desarrollador Full Stack con +3 años de experiencia",
+        "title": "Portafolio de Lanzer - Desarrollador Full Stack con +4 años de experiencia",
         "description": "Contrata a LanzerDev, Desarrollador Web especializado en crear aplicaciones únicas."
     },
     "hero": {
         "greeting": "Hey, soy Lanzer",
         "badge": "Disponible para trabajar",
-        "description": "+3 años de experiencia.",
+        "description": "+4 años de experiencia.",
         "role": "Desarrollador Web Full-Stack",
         "tagline": "especializado en desarrollo backend.",
         "motto": "Nunca paro de aprender."
@@ -37,116 +37,119 @@
     },
     "experience": [
         {
-            "date": "Septiembre 2024 - Mayo 2025",
-            "title": "Desarrollador Full Stack",
-            "company": "PVNUBE",
+            "date": "Septiembre 2024 - Mayo 2025 · 9 meses",
+            "title": "Programador",
+            "company": "PVNube",
             "location": "Culiacán, Sinaloa",
-            "description": "Lideré el desarrollo y mantenimiento de módulos críticos para un sistema ERP enfocado en manufactura, garantizando flexibilidad para diversos tipos de negocio.",
+            "description": "Lideré el desarrollo y la arquitectura de módulos críticos para un sistema ERP/CRM integral enfocado en la industria de manufactura pesada y ensamble metálico.",
             "achievements": [
-                "Desarrollo de Módulo Crítico: Diseñé e implementé el módulo de Producción y Proyectos, optimizando el control de procesos para empresas manufactureras.",
-                "Mantenimiento Full Stack: Mantuve y escalé la arquitectura existente, asegurando la estabilidad operativa del sistema."
+                "Ingeniería de Producción N-Niveles: Diseñé y programé un motor lógico para la gestión de Listas de Materiales (BOM) con N niveles de profundidad, permitiendo la configuración de ensambles complejos de piezas metálicas usando estructuras de datos de tipo árbol.",
+                "Automatización de Documentación Industrial: Automaticé la generación de documentos técnicos esenciales, incluyendo Hojas de Ruta, Hojas de Proceso y Listas de Materiales, optimizando la gestión de tiempos y estaciones de trabajo en el piso de producción.",
+                "Integración CRM y Automatización de Marketing: Desarrollé una integración robusta con la API de Facebook Leads, permitiendo la captura automática de prospectos y la creación de campañas publicitarias directamente desde el módulo CRM para múltiples empresas.",
+                "Optimización de Datos y Rendimiento: Implementé consultas SQL avanzadas y lógica de backend en PHP puro para procesar movimientos masivos de inventario y realizar cálculos de costos de producción en tiempo real.",
+                "Presencia Digital y SEO: Incrementé la visibilidad orgánica de la plataforma mediante optimización técnica de SEO y gestión estratégica de contenido a través de WordPress."
             ],
             "techStack": [
                 "PHP",
-                "jQuery",
                 "SQL",
+                "WordPress",
+                "Facebook Leads API",
                 "HTML5",
                 "CSS3"
             ]
         },
         {
-            "date": "Septiembre 2022 - Septiembre 2024",
-            "title": "Desarrollador de Software",
+            "date": "Septiembre 2022 - Septiembre 2024 · 2 años 1 mes",
+            "title": "Programador",
             "company": "Grupo Coppel",
             "location": "Culiacán, Sinaloa",
-            "description": "Colaboré en el ciclo completo de desarrollo de software corporativo, desde el mantenimiento de sistemas legacy hasta la implementación de nuevas arquitecturas cloud.",
+            "description": "Orquesté la modernización de sistemas críticos de Recursos Humanos y retiro, gestionando la transición de arquitecturas legacy a microservicios en la nube para una de las empresas de retail más grandes de México.",
             "achievements": [
-                "Modernización de Sistemas: Participé en el desarrollo del sistema Cocrea utilizando arquitectura moderna basada en microservicios.",
-                "Seguridad e Integración: Implementé autenticación segura usando Microsoft Entra ID (Azure).",
-                "Calidad de Software: Diseñé y ejecuté suites de pruebas automatizadas para APIs usando Postman, reduciendo errores en producción.",
-                "Backend y Legacy: Desarrollé Procedimientos Almacenados en SQL Server y mantuve componentes críticos en C# (WinForms) y C++."
+                "Cloud y Microservicios (Colaborapp): Desarrollé microservicios de alto rendimiento usando Spring Boot, Docker y Kubernetes para la 'Calculadora de Retiro' en la aplicación móvil de empleados (Colaborapp). Optimicé la extracción de datos financieros mediante procedimientos almacenados complejos en SQL Server, exponiéndolos a través de APIs RESTful escalables.",
+                "Modernización de Monolito: Lideré la migración de más de 10 módulos críticos de un monolito en C++ (Visual 2003) con 127 módulos a nuevas bibliotecas de enlace dinámico (DLLs) en C#/WinForms. Aseguré la compatibilidad y estabilidad del sistema de gestión de personal durante la transición arquitectónica.",
+                "Desarrollo Full-Stack (Sistema Cocrea): Participé en el ciclo de vida completo del sistema Cocrea usando un stack de Java (Hibernate), MongoDB y Angular. Implementé la capa de seguridad empresarial integrando Microsoft Entra ID (Azure) para la gestión de identidades.",
+                "Automatización de Reportes: Eliminé la dependencia de procesos manuales en Excel desarrollando procedimientos almacenados avanzados en SQL Server, integrando reportes automatizados de ahorro de empleados directamente en los nuevos módulos del sistema.",
+                "Calidad y Testing: Reduje la incidencia de errores en producción diseñando y ejecutando suites de pruebas automatizadas para APIs usando Postman."
             ],
             "techStack": [
+                "Spring Boot",
+                "Docker",
+                "Kubernetes",
                 "C#",
                 ".NET",
+                "C++",
                 "Angular",
-                "Spring Boot",
+                "Java",
+                "Hibernate",
+                "MongoDB",
                 "SQL Server",
                 "Azure",
-                "C++",
                 "Postman"
             ]
         },
         {
-            "date": "Enero 2024 - Agosto 2024",
-            "title": "Desarrollador Full Stack & Consultor",
-            "company": "Proyectos Freelance",
+            "date": "Enero 2024 - Agosto 2024 · 8 meses",
+            "title": "Desarrollador Backend",
+            "company": "SIR Soluciones Ambientales",
             "location": "Remoto",
-            "description": "Desarrollé soluciones personalizadas para clientes en diversos sectores, gestionando todo desde la recopilación de requisitos hasta el despliegue.",
+            "description": "Diseñé y desplegué una arquitectura centralizada para la gestión operativa y logística de una empresa líder con 20 años en el sector de recolección de residuos.",
             "achievements": [
-                "Arquitectura Centralizada: Creé un backend unificado en Python (Flask) para orquestar un ecosistema de tres aplicaciones (Backoffice, Frontoffice y Mobile) con PostgreSQL.",
-                "Sistemas de Gestión (SIR): Desarrollé un sistema integral de recolección de residuos para una empresa con 20 años en el sector.",
-                "Mantenimiento de CRM: Soporte y optimización de un CRM basado en React para una agencia de viajes."
+                "Arquitectura Unificada: Orquesté un ecosistema integral compuesto por tres plataformas (Backoffice, Frontoffice y Mobile) usando un backend unificado en Python (Flask) y PostgreSQL.",
+                "Gestión Logística en Tiempo Real: Desarrollé el sistema SIR, integrando funcionalidades críticas de monitoreo de flota en tiempo real y planificación dinámica de rutas para optimizar la eficiencia operativa.",
+                "Cumplimiento Legal y Automatización: Automaticé la generación de Cartas Porte y el seguimiento detallado de materiales de recolección, asegurando trazabilidad completa y cumplimiento con las regulaciones vigentes.",
+                "Control de Calidad y Almacenamiento en la Nube: Implementé un flujo de auditoría usando checklists preventivos y correctivos, integrando un sistema de archivos en AWS S3 para documentar el estado físico de los camiones con evidencia fotográfica antes y después de cada ruta.",
+                "Inteligencia de Negocio: Diseñé dashboards personalizados para la visualización de KPIs operativos, habilitando la toma de decisiones basada en datos para la asignación de recursos y personal."
             ],
             "techStack": [
                 "Python",
                 "Flask",
-                "SQLAlchemy",
                 "PostgreSQL",
-                "React",
-                "JavaScript"
+                "AWS S3",
+                "SQLAlchemy"
             ]
         },
         {
-            "date": "Enero 2022 - Junio 2022",
-            "title": "Desarrollador Backend",
-            "company": "DUOSEPTEM",
-            "location": "Remoto",
-            "description": "Desarrollo de APIs RESTful y conexión eficiente con clientes frontend Angular.",
-            "achievements": [
-                "Desarrollo de APIs RESTful y conexión eficiente con clientes frontend Angular.",
-                "Implementación de lógica de negocio para sistemas CRM y ERP de Tessiuto."
-            ],
-            "techStack": [
-                "Express.js",
-                "Angular",
-                "MySQL",
-                "Node.js"
-            ]
-        },
-        {
-            "date": "2 meses",
-            "title": "Técnico de Sistemas (Pasante)",
-            "company": "Bancoppel",
+            "date": "Julio 2022 - Septiembre 2022 · 3 meses",
+            "title": "Técnico de Soporte de TI",
+            "company": "BanCoppel",
             "location": "Culiacán, Sinaloa",
-            "description": "Ejecución del proyecto de migración del sistema 'Mensajero'.",
+            "description": "Realicé operaciones de soporte técnico, asegurando la disponibilidad de servicios bancarios en sucursales mediante la resolución de incidentes en tiempo real.",
             "achievements": [
-                "Ejecución del proyecto de migración del sistema 'Mensajero', asegurando la continuidad operativa en sucursales.",
-                "Soporte técnico de alto nivel para cajeros automáticos y periféricos bancarios."
+                "Soporte de Alto Nivel (Hardware Bancario): Brindé soporte técnico especializado para periféricos bancarios, resolviendo problemas complejos de integración de hardware y software.",
+                "Gestión de Incidentes: Gestioné tickets de soporte virtual bajo estrictos acuerdos de nivel de servicio, optimizando tiempos de respuesta para errores de software y configuración de dispositivos.",
+                "Optimización de Software: Realicé diagnósticos preventivos y correctivos, incluyendo reinstalación de drivers y depuración de errores del sistema, para maximizar la estabilidad de las herramientas tecnológicas utilizadas por el personal bancario."
             ],
-            "techStack": []
+            "techStack": [
+                "Soporte de Hardware",
+                "Gestión de Servicios TI",
+                "Windows"
+            ]
         },
         {
-            "date": "2 meses",
-            "title": "Desarrollador Web (Pasante)",
-            "company": "ThinkMercadocencia",
+            "date": "Enero 2022 - Julio 2022 · 7 meses",
+            "title": "Desarrollador Frontend",
+            "company": "Tessiuto",
             "location": "Remoto",
-            "description": "Desarrollo de sistema de administración y formularios dinámicos.",
+            "description": "Especializado en la construcción de funcionalidades de alto impacto para un ERP de la industria textil, enfocado en la estabilidad operativa y la gestión automatizada de inventario.",
             "achievements": [
-                "Desarrollo de sistema de administración y formularios dinámicos."
+                "Optimización de Catálogos e Inventario: Desarrollé catálogos integrales de Telas y Colores, permitiendo la clasificación precisa de materiales basada en aplicaciones específicas de producto.",
+                "Automatización de Flujos Comerciales: Diseñé un módulo de autorización remota de precios para facilitar validaciones de negocio en tiempo real y controles seguros de precios comerciales.",
+                "Eficiencia Logística: Automaticé sistemas de impresión dinámica de etiquetas para operaciones de almacén, integrando datos de producción para optimizar los flujos de envío y almacenamiento.",
+                "Integración Full-Stack: Construí interfaces de usuario escalables y responsivas usando Angular Material, Bootstrap y jQuery, asegurando una conexión fluida con servicios backend RESTful."
             ],
             "techStack": [
                 "Angular",
+                "Angular Material",
                 "Bootstrap",
-                "Express.js",
-                "MySQL"
+                "jQuery",
+                "REST API"
             ]
         }
     ],
     "projects": [
         {
             "title": "Sinfila - Backoffice",
-            "description": "Plataforma Backoffice Next.js - Una aplicación para gestionar sucursales, reservaciones y clientes en restaurantes.",
+            "description": "Plataforma Backoffice en Next.js - Una aplicación para gestionar las sucursales, reservaciones y clientes en los restaurantes.",
             "image": "/sinfila-backoffice.png",
             "link": "https://admin.sinfila.com.mx",
             "github": "",
@@ -158,7 +161,7 @@
         },
         {
             "title": "Sinfila - Customer",
-            "description": "Plataforma de Reservaciones B2B Next.js - Una aplicación para crear reservaciones o unirse a filas virtuales en restaurantes.",
+            "description": "Plataforma de Reservaciones B2B en Next.js - Una aplicación para crear reservaciones o entrar a fila virtual en restaurantes.",
             "image": "/sinfila-customer.png",
             "link": "https://app.sinfila.com.mx",
             "github": "",
@@ -206,13 +209,28 @@
             "category": "frontend"
         },
         {
-            "name": "Material UI",
+            "name": "Shadcn",
+            "icon": "shadcn",
+            "category": "frontend"
+        },
+        {
+            "name": "React MUI",
             "icon": "mui",
+            "category": "frontend"
+        },
+        {
+            "name": "Angular Material",
+            "icon": "material",
             "category": "frontend"
         },
         {
             "name": "Bootstrap",
             "icon": "bootstrap",
+            "category": "frontend"
+        },
+        {
+            "name": "Ant Design",
+            "icon": "ant",
             "category": "frontend"
         },
         {
@@ -231,7 +249,7 @@
             "category": "backend"
         },
         {
-            "name": "Flask",
+            "name": "Flask (Python)",
             "icon": "flask",
             "category": "backend"
         },
@@ -241,7 +259,7 @@
             "category": "backend"
         },
         {
-            "name": "Spring Boot",
+            "name": "Spring Boot (Java)",
             "icon": "spring",
             "category": "backend"
         },
@@ -308,7 +326,7 @@
             "description": "Educación técnica enfocada en fundamentos del desarrollo de software"
         },
         {
-            "title": "Entusiasta Autodidacta",
+            "title": "Apasionado Autodidacta",
             "institution": "Platzi",
             "description": "Plataforma de aprendizaje continuo para habilidades tecnológicas"
         },
@@ -322,11 +340,11 @@
         "intro": "Me llamo Lanzer Antuan.",
         "passion": "Amo programar,",
         "hobbies": "leer y aprender.",
-        "journey": "Empecé a programar desarrollando juegos en Unity 2D como hobby, hace 4 años.",
-        "experience": "Llevo 3 años trabajando en proyectos de programación reales. Tengo experiencia tanto en frontend como en backend. He trabajado desde sistemas legados hasta implementaciones de S3, sistemas de correo, sistemas de archivos, sistemas de notificaciones, despliegues con Docker en AWS, etc.",
+        "journey": "Me especializo en transformar problemas de negocio complejos en soluciones técnicas escalables y mantenibles. Con cuatro años de experiencia, mi trayectoria se divide en dos fortalezas principales: modernización de sistemas corporativos críticos y desarrollo de productos SaaS de alto impacto con agilidad.",
+        "experience": "En Grupo Coppel, orquesté la migración de módulos críticos de un sistema monolítico en C++ (Visual 2003) a microservicios modernos en Java (Spring Boot) y C#, asegurando la continuidad operativa para miles de usuarios. A través de mi proyecto SinFila, construí una plataforma B2B/B2C de extremo a extremo para la industria restaurantera usando Next.js, Tailwind y Supabase.",
         "strength": "Nunca me he limitado",
         "strengthContinued": "a trabajar con una sola tecnología o rol.",
-        "workStyle": "En el entorno laboral, me gusta trabajar de manera ordenada y proactiva, documentar mi trabajo, analizar problemas, crear diagramas que ayuden a comprender los sistemas o procesos que realizo y trabajar en equipo.",
+        "workStyle": "Aporto experiencia en Arquitectura Hexagonal, TDD, migración a microservicios e ingeniería de producto full-stack en ERP, CRM y plataformas B2B. En el entorno laboral, me gusta trabajar de manera ordenada y proactiva, documentar mi trabajo y colaborar en equipo.",
         "achievement": "Entre mis éxitos destaco el ser capaz de aprender de manera autodidacta cualquier tecnología necesaria para resolver los problemas que tengo día a día como programador.",
         "current": "Actualmente",
         "currentProject": "desarrollo de manera autónoma un sistema de gestión de filas para restaurantes"

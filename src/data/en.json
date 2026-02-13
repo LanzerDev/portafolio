@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Lanzer's Portfolio - Full Stack Developer with 3+ years of experience",
+    "title": "Lanzer's Portfolio - Full Stack Developer with 4+ years of experience",
     "description": "Hire LanzerDev, a Web Developer specialized in creating unique applications."
   },
   "hero": {
     "greeting": "Hey, I'm Lanzer",
     "badge": "Available for work",
-    "description": "+3 years of experience.",
+    "description": "+4 years of experience.",
     "role": "Full Stack Web Developer",
     "tagline": "specializing in backend development.",
     "motto": "I never stop learning."
@@ -37,109 +37,112 @@
   },
   "experience": [
     {
-      "date": "September 2024 - May 2025",
-      "title": "Full Stack Developer",
-      "company": "PVNUBE",
+      "date": "September 2024 - May 2025 · 9 months",
+      "title": "Programmer",
+      "company": "PVNube",
       "location": "Culiacán, Sinaloa",
-      "description": "Led the development and maintenance of critical modules for a manufacturing-focused ERP system, ensuring flexibility for various business types.",
+      "description": "I led the development and architecture of critical modules for a comprehensive ERP/CRM system focused on the heavy manufacturing and metal assembly industry.",
       "achievements": [
-        "Critical Module Development: Designed and implemented the Production and Projects module, optimizing process control for manufacturing companies.",
-        "Full Stack Maintenance: Maintained and scaled the existing architecture, ensuring system operational stability."
+        "N-Level Production Engineering: Designed and programmed a logic engine for managing Bills of Materials (BOMs) with N levels of depth, enabling the configuration of complex metal part assemblies using tree data structures.",
+        "Industrial Documentation Automation: Automated the generation of essential technical documents, including Routing Sheets, Process Sheets, and Bills of Materials, optimizing time and workstation management on the production floor.",
+        "CRM & Marketing Automation Integration: Developed a robust integration with the Facebook Leads API, allowing for the automatic capture of leads and the creation of advertising campaigns directly from the CRM module for multiple companies.",
+        "Data and Performance Optimization: Implemented advanced SQL queries and backend logic in pure PHP to process bulk inventory movements and perform real-time production cost calculations.",
+        "Digital Presence and SEO: Increased the platform's organic visibility through technical SEO optimization and strategic content management via WordPress."
       ],
       "techStack": [
         "PHP",
-        "jQuery",
         "SQL",
+        "WordPress",
+        "Facebook Leads API",
         "HTML5",
         "CSS3"
       ]
     },
     {
-      "date": "September 2022 - September 2024",
-      "title": "Software Developer",
+      "date": "September 2022 - September 2024 · 2 years 1 month",
+      "title": "Programmer",
       "company": "Grupo Coppel",
       "location": "Culiacán, Sinaloa",
-      "description": "Collaborated in the full corporate software development lifecycle, from maintaining legacy systems to implementing new cloud architectures.",
+      "description": "I orchestrated the modernization of critical Human Resources and retirement systems, managing the transition from legacy architectures to cloud microservices for one of Mexico's largest retail companies.",
       "achievements": [
-        "System Modernization: Participated in the development of the Cocrea system using a modern microservices-based architecture.",
-        "Security & Integration: Implemented secure authentication using Microsoft Entra ID (Azure).",
-        "Software Quality: Designed and executed automated test suites for APIs using Postman, reducing production errors.",
-        "Backend & Legacy: Developed Stored Procedures in SQL Server and maintained critical components in C# (WinForms) and C++."
+        "Cloud & Microservices (Colaborapp): Developed high-performance microservices using Spring Boot, Docker, and Kubernetes for the 'Retirement Calculator' in the employee mobile app (Colaborapp). Optimized the extraction of financial data using complex stored procedures in SQL Server, exposing them through scalable RESTful APIs.",
+        "Monolith Modernization: Led the migration of more than 10 critical modules from a C++ monolith (Visual 2003) with 127 modules to new dynamic link libraries (DLLs) in C#/WinForms. Ensured the compatibility and stability of the personnel management system during the architectural transition.",
+        "Full-Stack Development (Cocrea System): Participated in the complete lifecycle of the Cocrea system using a Java (Hibernate), MongoDB, and Angular stack. Implemented the enterprise security layer by integrating Microsoft Entra ID (Azure) for identity management.",
+        "Report Automation: Eliminated the reliance on manual Excel processes by developing advanced stored procedures in SQL Server, integrating automated employee savings reports directly into the new system modules.",
+        "Quality and Testing: Reduced the incidence of errors in production by designing and executing automated test suites for APIs using Postman."
       ],
       "techStack": [
+        "Spring Boot",
+        "Docker",
+        "Kubernetes",
         "C#",
         ".NET",
+        "C++",
         "Angular",
-        "Spring Boot",
+        "Java",
+        "Hibernate",
+        "MongoDB",
         "SQL Server",
         "Azure",
-        "C++",
         "Postman"
       ]
     },
     {
-      "date": "January 2024 - August 2024",
-      "title": "Full Stack Developer & Consultant",
-      "company": "Freelance Projects",
+      "date": "January 2024 - August 2024 · 8 months",
+      "title": "Backend Developer",
+      "company": "SIR Soluciones Ambientales",
       "location": "Remote",
-      "description": "Developed custom solutions for clients in various sectors, managing everything from requirements gathering to deployment.",
+      "description": "I designed and deployed a centralized architecture for the operational and logistical management of a leading company with 20 years in the waste collection sector.",
       "achievements": [
-        "Centralized Architecture: Created a unified backend in Python (Flask) to orchestrate an ecosystem of three applications (Backoffice, Frontoffice, and Mobile) with PostgreSQL.",
-        "Management Systems (SIR): Developed a comprehensive waste collection system for a company with 20 years in the sector.",
-        "CRM Maintenance: Support and optimization of a React-based CRM for a travel agency."
+        "Unified Architecture: Orchestrated a comprehensive ecosystem comprised of three platforms (Backoffice, Frontoffice, and Mobile) using a unified backend in Python (Flask) and PostgreSQL.",
+        "Real-Time Logistics Management: Developed the SIR system, integrating critical real-time fleet monitoring and dynamic route planning functionalities to optimize operational efficiency.",
+        "Legal Compliance and Automation: Automated the generation of Waybills and the detailed tracking of collection materials, ensuring full traceability and compliance with current regulations.",
+        "Quality Control and Cloud Storage: Implemented an audit workflow using preventive and corrective checklists, integrating a file system in AWS S3 to document the physical condition of the trucks with photographic evidence before and after each route.",
+        "Business Intelligence: Designed custom dashboards for the visualization of operational KPIs, enabling data-driven decision-making for resource and staff allocation."
       ],
       "techStack": [
         "Python",
         "Flask",
-        "SQLAlchemy",
         "PostgreSQL",
-        "React",
-        "JavaScript"
+        "AWS S3",
+        "SQLAlchemy"
       ]
     },
     {
-      "date": "January 2022 - June 2022",
-      "title": "Backend Developer",
-      "company": "DUOSEPTEM",
-      "location": "Remote",
-      "description": "Development of RESTful APIs and efficient connection with Angular frontend clients.",
-      "achievements": [
-        "Development of RESTful APIs and efficient connection with Angular frontend clients.",
-        "Implementation of business logic for Tessiuto's CRM and ERP systems."
-      ],
-      "techStack": [
-        "Express.js",
-        "Angular",
-        "MySQL",
-        "Node.js"
-      ]
-    },
-    {
-      "date": "2 months",
-      "title": "Systems Technician (Intern)",
-      "company": "Bancoppel",
+      "date": "July 2022 - September 2022 · 3 months",
+      "title": "IT Support Technician",
+      "company": "BanCoppel",
       "location": "Culiacán, Sinaloa",
-      "description": "Execution of the 'Mensajero' system migration project.",
+      "description": "I performed technical support operations, ensuring the availability of banking services at branches by resolving incidents in real time.",
       "achievements": [
-        "Execution of the 'Mensajero' system migration project, ensuring operational continuity in branches.",
-        "High-level technical support for ATMs and banking peripherals."
+        "High-Level Support (Banking Hardware): Provided specialized technical support for banking peripherals, resolving complex hardware and software integration issues.",
+        "Incident Management: Managed virtual support tickets under strict service level agreements, optimizing response times for software errors and device configuration.",
+        "Software Optimization: Performed preventative and corrective diagnostics, including driver reinstallation and system error debugging, to maximize the stability of the technological tools used by bank staff."
       ],
-      "techStack": []
+      "techStack": [
+        "Hardware Support",
+        "IT Service Management",
+        "Windows"
+      ]
     },
     {
-      "date": "2 months",
-      "title": "Web Developer (Intern)",
-      "company": "ThinkMercadocencia",
+      "date": "January 2022 - July 2022 · 7 months",
+      "title": "Frontend Developer",
+      "company": "Tessiuto",
       "location": "Remote",
-      "description": "Development of administration system and dynamic forms.",
+      "description": "Specialized in building high-impact features for a textile industry ERP, focusing on operational stability and automated inventory management.",
       "achievements": [
-        "Development of administration system and dynamic forms."
+        "Catalog & Inventory Optimization: Developed comprehensive Fabric and Color catalogs, allowing for precise material classification based on specific product applications.",
+        "Commercial Workflow Automation: Engineered a remote price authorization module to facilitate real-time business validations and secure commercial price controls.",
+        "Logistics Efficiency: Automated dynamic label printing systems for warehouse operations, integrating production data to streamline shipping and storage workflows.",
+        "Full-Stack Integration: Built scalable and responsive user interfaces using Angular Material, Bootstrap, and jQuery, ensuring seamless connection with RESTful backend services."
       ],
       "techStack": [
         "Angular",
+        "Angular Material",
         "Bootstrap",
-        "Express.js",
-        "MySQL"
+        "jQuery",
+        "REST API"
       ]
     }
   ],
@@ -206,13 +209,28 @@
       "category": "frontend"
     },
     {
-      "name": "Material UI",
+      "name": "Shadcn",
+      "icon": "shadcn",
+      "category": "frontend"
+    },
+    {
+      "name": "React MUI",
       "icon": "mui",
+      "category": "frontend"
+    },
+    {
+      "name": "Angular Material",
+      "icon": "material",
       "category": "frontend"
     },
     {
       "name": "Bootstrap",
       "icon": "bootstrap",
+      "category": "frontend"
+    },
+    {
+      "name": "Ant Design",
+      "icon": "ant",
       "category": "frontend"
     },
     {
@@ -231,7 +249,7 @@
       "category": "backend"
     },
     {
-      "name": "Flask",
+      "name": "Flask (Python)",
       "icon": "flask",
       "category": "backend"
     },
@@ -241,7 +259,7 @@
       "category": "backend"
     },
     {
-      "name": "Spring Boot",
+      "name": "Spring Boot (Java)",
       "icon": "spring",
       "category": "backend"
     },
@@ -322,11 +340,11 @@
     "intro": "My name is Lanzer Antuan.",
     "passion": "I love programming,",
     "hobbies": "reading, and learning.",
-    "journey": "I started programming developing 2D games in Unity as a hobby, 4 years ago.",
-    "experience": "I have 3 years of experience working on real programming projects. I have experience in both frontend and backend. I've worked on everything from legacy systems to S3 implementations, email systems, file systems, notification systems, Docker deployments on AWS, etc.",
+    "journey": "I specialize in transforming complex business problems into scalable and maintainable technical solutions. With four years of experience, my career path is divided into two main strengths: modernizing critical corporate systems and developing high-impact SaaS products with agility.",
+    "experience": "At Grupo Coppel, I orchestrated the migration of critical modules from a monolithic C++ system (Visual 2003) to modern microservices in Java (Spring Boot) and C#, ensuring operational continuity for thousands of users. Through my SinFila project, I built an end-to-end B2B/B2C platform for the restaurant industry using Next.js, Tailwind, and Supabase.",
     "strength": "I've never limited myself",
     "strengthContinued": "to working with just one technology or role.",
-    "workStyle": "In the work environment, I like to work in an organized and proactive manner, document my work, analyze problems, create diagrams that help understand the systems or processes I work on, and collaborate with teams.",
+    "workStyle": "I bring expertise in Hexagonal Architecture, TDD, microservices migration, and full-stack product engineering across ERP, CRM, and B2B platforms. In the work environment, I like to work in an organized and proactive manner, document my work, and collaborate with teams.",
     "achievement": "Among my achievements, I highlight being able to self-learn any technology needed to solve the daily problems I face as a programmer.",
     "current": "Currently",
     "currentProject": "I'm autonomously developing a queue management system for restaurants"
