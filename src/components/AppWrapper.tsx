@@ -14,7 +14,7 @@ interface AppWrapperProps {
 export default function AppWrapper({ children, initialLang = 'es' }: AppWrapperProps) {
     return (
         <LanguageProvider initialLang={initialLang}>
-            <div className="fixed top-4 right-4 z-50">
+            <div className="fixed bottom-4 right-4 sm:bottom-auto sm:top-4 sm:right-4 z-50">
                 <LanguageSwitcher />
             </div>
             <DownloadCV />

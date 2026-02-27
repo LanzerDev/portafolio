@@ -27,8 +27,10 @@ export default function DownloadCV() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="
-        fixed bottom-6 right-6 z-50
-        flex items-center gap-2 px-5 py-3
+        fixed bottom-16 right-4 z-50
+        sm:bottom-6 sm:right-6
+        flex items-center gap-2 px-3 py-2.5
+        sm:px-5 sm:py-3
         bg-gradient-to-r from-primary-500 to-secondary-500
         text-white font-medium rounded-full
         shadow-lg shadow-primary-500/30
@@ -40,7 +42,7 @@ export default function DownloadCV() {
         >
             {/* Download Icon */}
             <svg
-                className="w-5 h-5 transition-transform group-hover:-translate-y-0.5"
+                className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:-translate-y-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
