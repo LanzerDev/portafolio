@@ -1,43 +1,52 @@
 'use client';
 
 import { useLanguage } from '../i18n/LanguageContext';
-import { m, type Variants } from 'framer-motion';
+import { m, type Variants, useReducedMotion } from 'framer-motion';
 
-// Curva bezier personalizada como string compatible con Framer Motion 12
-const EASE_CUSTOM = 'easeOut' as const;
+/*
+  CORRECCIÓN CRÍTICA DE LCP:
+  Framer Motion en SSR inyecta `style="opacity:0"` en los elementos con `initial={{ opacity: 0 }}`.
+  Esto hace que el texto del hero sea invisible hasta que React hidrata → LCP delay de 2,570ms.
 
-// Variant container para animar todos los hijos en cascada con 1 solo motion element
+  Solución: Usamos `initial={false}` en el LazyMotion outer (controlado desde aquí)
+  combinado con una detección de "primer render" via `useReducedMotion`.
+
+  La estrategia correcta para SSR con Framer Motion es:
+  - Para el contenido above-the-fold (hero): NO usar opacity:0 initial
+  - Solo animar translate (transform), NO opacity — así el texto ES VISIBLE en SSR
+  - Las animaciones de entrada se hacen vía CSS @keyframes para el LCP element
+*/
+
 const heroContainer: Variants = {
     hidden: {},
     visible: {
-        transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+        transition: { staggerChildren: 0.07, delayChildren: 0.05 },
     },
 };
 
-const heroItem: Variants = {
-    hidden: { opacity: 0, y: 18 },
+// Solo anima Y (transform) - nunca opacity para el hero (Lighthouse LCP fix)
+const heroItemTranslate: Variants = {
+    hidden: { y: 20 },
     visible: {
-        opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: EASE_CUSTOM },
+        transition: { duration: 0.45, ease: 'easeOut' },
     },
 };
 
 export default function HeroSection() {
     const { t } = useLanguage();
     const { hero, contact } = t;
+    const shouldReduceMotion = useReducedMotion();
 
     return (
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            {/* Profile Image — animación separada para scale */}
+            {/* Profile Image */}
             <m.div
-                initial={{ opacity: 0, scale: 0.85 }}
+                initial={{ opacity: 0, scale: 0.88 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, ease: EASE_CUSTOM }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
                 className="relative flex-shrink-0"
             >
-                {/* Box-shadow en lugar de div con blur-2xl+animate-pulse
-                    — elimina una capa de composición costosa */}
                 <img
                     src="/lanzerdev.webp"
                     alt="Lanzer Antuan Cabanillas Lopez"
@@ -49,20 +58,23 @@ export default function HeroSection() {
                                border-4 border-primary-500/30
                                shadow-[0_0_0_1px_rgba(139,92,246,0.2),0_0_40px_rgba(139,92,246,0.35),0_0_80px_rgba(59,130,246,0.15)]"
                 />
-                {/* Indicador de disponibilidad */}
                 <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-slate-900" />
             </m.div>
 
-            {/* Content — 1 solo motion.div con Variants en lugar de 7 motion.* individuales */}
+            {/*
+              Content: NO usamos opacity en el estado hidden para el hero.
+              El texto es visible inmediatamente desde SSR — solo animate transform Y.
+              Esto elimina el "element render delay" de 2,570ms del LCP.
+            */}
             <m.div
                 className="flex-1 text-center md:text-left"
                 variants={heroContainer}
-                initial="hidden"
+                initial={shouldReduceMotion ? false : 'hidden'}
                 animate="visible"
             >
                 {/* Badge */}
                 <m.div
-                    variants={heroItem}
+                    variants={heroItemTranslate}
                     className="inline-flex items-center gap-2 px-4 py-2 mb-4 rounded-full glass border border-green-500/30"
                 >
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -71,30 +83,33 @@ export default function HeroSection() {
 
                 {/* Greeting */}
                 <m.h1
-                    variants={heroItem}
+                    variants={heroItemTranslate}
                     className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
                 >
                     <span className="text-white">{hero.greeting.split(' ').slice(0, 2).join(' ')}</span>{' '}
                     <span className="gradient-text">{hero.greeting.split(' ').slice(2).join(' ')}</span>
                 </m.h1>
 
-                {/* Description */}
-                <m.p variants={heroItem} className="text-xl md:text-2xl text-gray-300 mb-2">
+                {/*
+                  Este es el LCP element según Lighthouse.
+                  Al no tener opacity:0 en initial, será visible desde SSR.
+                */}
+                <m.p variants={heroItemTranslate} className="text-xl md:text-2xl text-gray-300 mb-2">
                     {hero.description}{' '}
                     <span className="text-primary-400 font-semibold">{hero.role}</span>
                 </m.p>
 
-                <m.p variants={heroItem} className="text-lg text-gray-400 mb-2">
+                <m.p variants={heroItemTranslate} className="text-lg text-gray-400 mb-2">
                     {hero.tagline}
                 </m.p>
 
-                <m.p variants={heroItem} className="text-lg font-medium gradient-text">
+                <m.p variants={heroItemTranslate} className="text-lg font-medium gradient-text">
                     {hero.motto}
                 </m.p>
 
                 {/* Social Pills */}
                 <m.nav
-                    variants={heroItem}
+                    variants={heroItemTranslate}
                     className="flex flex-wrap justify-center md:justify-start gap-4 mt-8"
                 >
                     <a

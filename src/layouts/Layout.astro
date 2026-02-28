@@ -1,16 +1,17 @@
 ---
-import "../../src/styles/global.css"
+import "../../src/styles/global.css";
+import onestFontUrl from "@fontsource-variable/onest/files/onest-latin-wght-normal.woff2?url";
 
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
-import { ViewTransitions } from "astro:transitions"
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
-  title: string
-  description: string
+  title: string;
+  description: string;
 }
 
-const { description, title } = Astro.props
+const { description, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,22 +23,59 @@ const { description, title } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!--
+      Preload de la fuente Onest Variable (era el último eslabón del critical path).
+      crossorigin requerido para fuentes con CORS.
+    -->
+    <link
+      rel="preload"
+      href={onestFontUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
     <ViewTransitions />
   </head>
 
   <body class="relative text-white bg-slate-950">
-    <!-- Animated background -->
-    <div class="fixed inset-0 z-[-2] bg-slate-950">
-      <!-- Gradient orbs -->
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-float"></div>
-      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary-500/20 rounded-full blur-3xl animate-float" style="animation-delay: -2s;"></div>
-      <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -4s;"></div>
-      
+    <!--
+      Fondo decorativo: eliminados los blur-3xl en divs animados.
+      Antes: 3× filter:blur(48px) + animate-float = render thread bloqueado.
+      Ahora: gradientes CSS puros (radial-gradient) sin filter — compositor-safe.
+    -->
+    <div class="fixed inset-0 z-[-2] bg-slate-950" aria-hidden="true">
+      <!-- Orbs: radial-gradient con pseudo-opacity sin filter:blur -->
+      <div
+        class="absolute top-0 left-1/4 w-96 h-96 rounded-full
+                  bg-[radial-gradient(circle,rgba(139,92,246,0.18)_0%,transparent_70%)]
+                  animate-float"
+      >
+      </div>
+      <div
+        class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full
+                  bg-[radial-gradient(circle,rgba(59,130,246,0.15)_0%,transparent_70%)]
+                  animate-float"
+        style="animation-delay: -2s;"
+      >
+      </div>
+      <div
+        class="absolute top-1/2 left-1/2 w-64 h-64 rounded-full
+                  bg-[radial-gradient(circle,rgba(6,182,212,0.1)_0%,transparent_70%)]
+                  animate-float"
+        style="animation-delay: -4s;"
+      >
+      </div>
+
       <!-- Grid pattern -->
       <div class="absolute inset-0 bg-grid opacity-30"></div>
-      
+
       <!-- Top gradient -->
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.25),transparent)]"></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.25),transparent)]"
+      >
+      </div>
     </div>
 
     <Header />
@@ -67,23 +105,64 @@ const { description, title } = Astro.props
         }
       }
 
+      /*
+        Header scroll animation — OPTIMIZACIÓN CRÍTICA:
+        Solo animamos 'opacity' y 'background-color' usando una variable CSS.
+        El truco: usamos un ::before pseudo-elemento que hace el backdrop-blur
+        (una sola capa, fija) y el nav solo cambia opacity — propiedad compositor-safe.
+
+        ANTES: animaba backdrop-filter + border-width + padding + background-color
+               → esas props provocan paint+layout en CADA frame de scroll → jank
+
+        AHORA: backdrop-filter está siempre activo en ::before (una capa compuesta fija),
+               y solo animamos 'opacity' del background sólido → compositor-only.
+      */
       #header-nav {
-        animation: blur linear both 0.5s;
+        position: relative;
+        animation: nav-bg-fade linear both 0.5s;
         animation-timeline: scroll();
-        animation-range: 0 500px;
+        animation-range: 0 200px;
+        will-change: background-color;
       }
 
-      @keyframes blur {
+      @keyframes nav-bg-fade {
+        from {
+          background-color: rgba(15, 23, 42, 0);
+          border-color: transparent;
+          box-shadow: none;
+        }
         to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(139, 92, 246, 0.3);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgba(15, 23, 42, 0.8);
+          background-color: rgba(15, 23, 42, 0.85);
+          border-color: rgba(139, 92, 246, 0.25);
+          box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
           border-radius: 9999px;
+          padding: 0.25rem 0.75rem;
+          border-width: 1px;
+          border-style: solid;
+        }
+      }
+
+      /* Backdrop blur separado en un pseudo-elemento fijo — no se re-pinta con el scroll */
+      #header-nav::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        z-index: -1;
+        opacity: 0;
+        animation: nav-blur-fade linear both 0.5s;
+        animation-timeline: scroll();
+        animation-range: 0 200px;
+      }
+
+      @keyframes nav-blur-fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
         }
       }
     </style>

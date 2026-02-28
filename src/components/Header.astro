@@ -114,22 +114,11 @@ const navItems = [
 </script>
 
 <style>
+  /* La scroll animation del nav ahora vive en Layout.astro
+     con pseudo-elemento ::before para backdrop-blur compositor-safe.
+     Aquí solo mantenemos el color base. */
   nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-    /* will-change para pre-promover capa compuesta antes del scroll animation */
-    will-change: background-color, box-shadow;
-    @apply bg-slate-900/50;
-  }
-
-  @keyframes nav-shadown {
-    0% {
-      @apply bg-slate-900/0;
-    }
-    to {
-      @apply shadow-lg ring-1 backdrop-blur-xl ring-primary-500/20 bg-slate-900/80;
-    }
+    @apply bg-slate-900/0;
   }
 
   .nav-link {
@@ -144,7 +133,8 @@ const navItems = [
     width: 0;
     height: 2px;
     background: linear-gradient(90deg, #8b5cf6, #06b6d4);
-    transition: all 0.3s ease;
+    /* Solo animar width — no usar transition:all */
+    transition: width 0.3s ease;
     transform: translateX(-50%);
   }
 
