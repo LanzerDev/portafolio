@@ -12,30 +12,34 @@
 }
 
 /* ===== GLASSMORPHISM UTILITIES ===== */
+/* .glass solo se usa en el header y elementos pequeños
+   — se mantiene backdrop-filter aquí porque son pocos elementos fijos */
 .glass {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* .glass-card NO tiene backdrop-filter — eliminar para evitar
+   múltiples capas de composición GPU durante el scroll */
 .glass-card {
   background: linear-gradient(
     135deg,
-    rgba(139, 92, 246, 0.1) 0%,
-    rgba(59, 130, 246, 0.05) 100%
+    rgba(139, 92, 246, 0.12) 0%,
+    rgba(59, 130, 246, 0.07) 100%
   );
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* backdrop-filter eliminado — era el mayor killer de FPS */
   border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 1rem;
-  transition: all 0.3s ease;
+  /* Solo animar propiedades compositor-safe */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .glass-card:hover {
   background: linear-gradient(
     135deg,
-    rgba(139, 92, 246, 0.15) 0%,
+    rgba(139, 92, 246, 0.17) 0%,
     rgba(59, 130, 246, 0.1) 100%
   );
   border-color: rgba(139, 92, 246, 0.4);
@@ -45,8 +49,7 @@
 
 .glass-light {
   background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Mantener blur aquí solo si se usa en elemento fijo/único */
   border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
@@ -94,13 +97,15 @@
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.1));
   border: 1px solid rgba(139, 92, 246, 0.3);
   color: #c4b5fd;
-  transition: all 0.2s ease;
+  /* Solo propiedades específicas — eliminar transition: all */
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
+/* El hover de scale+translate ahora es CSS puro — sin Framer Motion whileHover */
 .tech-badge:hover {
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.2));
   border-color: rgba(139, 92, 246, 0.5);
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-2px);
 }
 
 /* Light mode badge */
@@ -198,4 +203,23 @@
     linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+/* ===== PERFORMANCE: Respect reduced motion preference ===== */
+@media (prefers-reduced-motion: reduce) {
+  .float-animation,
+  .pulse-glow {
+    animation: none;
+  }
+
+  .glass-card,
+  .tech-badge {
+    transition: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

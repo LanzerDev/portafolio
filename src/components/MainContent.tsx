@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { LazyMotion, domMax, m } from 'framer-motion';
 import { LanguageProvider, useLanguage } from '../i18n/LanguageContext';
 import type { Language } from '../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -12,7 +13,6 @@ import Skills from './Skills';
 import Education from './Education';
 import AboutSection from './AboutSection';
 import ContactInfo from './ContactInfo';
-import { motion } from 'framer-motion';
 
 interface AppWrapperProps {
     children?: ReactNode;
@@ -22,15 +22,16 @@ interface AppWrapperProps {
 // Section title component with i18n support
 function SectionTitle({ icon, children, className = '' }: { icon: ReactNode; children: ReactNode; className?: string }) {
     return (
-        <motion.h2
-            initial={{ opacity: 0, x: -20 }}
+        <m.h2
+            initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             className={`flex items-center mb-6 text-3xl font-semibold gap-x-3 text-white ${className}`}
         >
             {icon}
             {children}
-        </motion.h2>
+        </m.h2>
     );
 }
 
@@ -43,7 +44,7 @@ function Section({ id, children, className = '' }: { id?: string; children: Reac
     );
 }
 
-// Icons
+// Icons — componentes estáticos, no necesitan ser motion elements
 const BriefcaseIcon = () => (
     <svg className="w-8 h-8 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -83,81 +84,85 @@ const ContactIcon = () => (
 export default function MainContent({ initialLang = 'es' }: AppWrapperProps) {
     return (
         <LanguageProvider initialLang={initialLang}>
-            {/* Fixed UI elements */}
-            <div className="fixed bottom-4 right-4 sm:bottom-auto sm:top-4 sm:right-4 z-50">
-                <LanguageSwitcher />
-            </div>
-            <DownloadCV />
-
-            {/* Main content */}
-            <main className="px-4 max-w-6xl mx-auto">
-                {/* Hero Section */}
-                <Section className="py-20 md:py-32">
-                    <HeroSection />
-                </Section>
-
-                <div className="space-y-24 md:space-y-32 pb-20">
-                    {/* Experience Section */}
-                    <Section id="experiencia">
-                        <SectionTitle icon={<BriefcaseIcon />}>
-                            <TranslatedTitle keyPath="sections.experience" />
-                        </SectionTitle>
-                        <div className="mt-12">
-                            <ExperienceSection />
-                        </div>
-                    </Section>
-
-                    {/* Projects Section */}
-                    <Section id="proyectos">
-                        <SectionTitle icon={<CodeIcon />}>
-                            <TranslatedTitle keyPath="sections.projects" />
-                        </SectionTitle>
-                        <div className="mt-12">
-                            <ProjectsSection />
-                        </div>
-                    </Section>
-
-                    {/* Skills Section */}
-                    <Section id="habilidades">
-                        <SectionTitle icon={<SkillsIcon />}>
-                            <TranslatedTitle keyPath="sections.skills" />
-                        </SectionTitle>
-                        <div className="mt-12">
-                            <Skills />
-                        </div>
-                    </Section>
-
-                    {/* Education Section */}
-                    <Section id="educacion">
-                        <SectionTitle icon={<EducationIcon />}>
-                            <TranslatedTitle keyPath="sections.education" />
-                        </SectionTitle>
-                        <div className="mt-12">
-                            <Education />
-                        </div>
-                    </Section>
-
-                    {/* About Me Section */}
-                    <Section id="sobre-mi">
-                        <SectionTitle icon={<ProfileIcon />}>
-                            <TranslatedTitle keyPath="sections.about" />
-                        </SectionTitle>
-                        <div className="mt-12">
-                            <AboutSection />
-                        </div>
-                    </Section>
-
-                    {/* Contact Section */}
-                    <Section id="contacto">
-                        <SectionTitle icon={<ContactIcon />}>
-                            <TranslatedTitle keyPath="sections.contact" fallback="Contacto" />
-                        </SectionTitle>
-                        <div className="mt-12">
-                            <ContactInfo />
-                        </div>
-                    </Section>
+            {/* LazyMotion con domMax (importación estática) — bundle optimizado sin
+                riesgo de 504 de Vite con dynamic imports en SSR */}
+            <LazyMotion features={domMax}>
+                {/* Fixed UI elements */}
+                <div className="fixed bottom-4 right-4 sm:bottom-auto sm:top-4 sm:right-4 z-50">
+                    <LanguageSwitcher />
                 </div>
-            </main>
+                <DownloadCV />
+
+                {/* Main content */}
+                <main className="px-4 max-w-6xl mx-auto">
+                    {/* Hero Section */}
+                    <Section className="py-20 md:py-32">
+                        <HeroSection />
+                    </Section>
+
+                    <div className="space-y-24 md:space-y-32 pb-20">
+                        {/* Experience Section */}
+                        <Section id="experiencia">
+                            <SectionTitle icon={<BriefcaseIcon />}>
+                                <TranslatedTitle keyPath="sections.experience" />
+                            </SectionTitle>
+                            <div className="mt-12">
+                                <ExperienceSection />
+                            </div>
+                        </Section>
+
+                        {/* Projects Section */}
+                        <Section id="proyectos">
+                            <SectionTitle icon={<CodeIcon />}>
+                                <TranslatedTitle keyPath="sections.projects" />
+                            </SectionTitle>
+                            <div className="mt-12">
+                                <ProjectsSection />
+                            </div>
+                        </Section>
+
+                        {/* Skills Section */}
+                        <Section id="habilidades">
+                            <SectionTitle icon={<SkillsIcon />}>
+                                <TranslatedTitle keyPath="sections.skills" />
+                            </SectionTitle>
+                            <div className="mt-12">
+                                <Skills />
+                            </div>
+                        </Section>
+
+                        {/* Education Section */}
+                        <Section id="educacion">
+                            <SectionTitle icon={<EducationIcon />}>
+                                <TranslatedTitle keyPath="sections.education" />
+                            </SectionTitle>
+                            <div className="mt-12">
+                                <Education />
+                            </div>
+                        </Section>
+
+                        {/* About Me Section */}
+                        <Section id="sobre-mi">
+                            <SectionTitle icon={<ProfileIcon />}>
+                                <TranslatedTitle keyPath="sections.about" />
+                            </SectionTitle>
+                            <div className="mt-12">
+                                <AboutSection />
+                            </div>
+                        </Section>
+
+                        {/* Contact Section */}
+                        <Section id="contacto">
+                            <SectionTitle icon={<ContactIcon />}>
+                                <TranslatedTitle keyPath="sections.contact" fallback="Contacto" />
+                            </SectionTitle>
+                            <div className="mt-12">
+                                <ContactInfo />
+                            </div>
+                        </Section>
+                    </div>
+                </main>
+            </LazyMotion>
         </LanguageProvider>
     );
 }
@@ -165,7 +170,6 @@ export default function MainContent({ initialLang = 'es' }: AppWrapperProps) {
 // Helper component to get translated section titles
 function TranslatedTitle({ keyPath, fallback }: { keyPath: string; fallback?: string }) {
     const { t } = useLanguage();
-    // Navigate the key path
     const value = keyPath.split('.').reduce((obj: any, key: string) => obj?.[key], t);
     return <>{value || fallback || keyPath}</>;
 }

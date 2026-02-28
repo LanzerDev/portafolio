@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 interface FadeInProps {
@@ -12,17 +12,17 @@ interface FadeInProps {
 }
 
 const directionVariants = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { y: 0, x: 40 },
-    right: { y: 0, x: -40 },
+    up: { y: 30, x: 0 },
+    down: { y: -30, x: 0 },
+    left: { y: 0, x: 30 },
+    right: { y: 0, x: -30 },
     none: { y: 0, x: 0 },
 };
 
 export default function FadeIn({
     children,
     delay = 0,
-    duration = 0.6,
+    duration = 0.5,
     direction = 'up',
     className = '',
 }: FadeInProps) {
@@ -32,10 +32,10 @@ export default function FadeIn({
     };
 
     return (
-        <motion.div
+        <m.div
             initial={initial}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, margin: '-40px' }}
             transition={{
                 duration,
                 delay,
@@ -44,6 +44,6 @@ export default function FadeIn({
             className={className}
         >
             {children}
-        </motion.div>
+        </m.div>
     );
 }

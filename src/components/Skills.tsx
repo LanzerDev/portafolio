@@ -1,7 +1,7 @@
 'use client';
 
 import { useLanguage } from '../i18n/LanguageContext';
-import { motion } from 'framer-motion';
+import { m, type Variants } from 'framer-motion';
 import {
     SiNextdotjs, SiReact, SiAngular, SiHtml5, SiCss3, SiJavascript,
     SiTailwindcss, SiMui, SiBootstrap, SiSupabase, SiExpress,
@@ -12,7 +12,6 @@ import { FaJava, FaDatabase } from 'react-icons/fa';
 import { TbBrandDiscord } from 'react-icons/tb';
 import type { IconType } from 'react-icons';
 
-// Skills icons mapping
 const skillIcons: Record<string, { icon: IconType; color: string }> = {
     nextjs: { icon: SiNextdotjs, color: '#ffffff' },
     react: { icon: SiReact, color: '#61DAFB' },
@@ -49,11 +48,25 @@ const categoryLabels: Record<string, { en: string; es: string }> = {
     tools: { en: 'Tools & Methods', es: 'Herramientas y Métodos' },
 };
 
+// Variants tipados correctamente para FM 12
+const categoryVariants: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.03 } },
+};
+
+const badgeVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.85 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.3, ease: 'easeOut' },
+    },
+};
+
 export default function Skills() {
     const { lang, t } = useLanguage();
     const skills = t.skills;
 
-    // Group skills by category
     const grouped = skills.reduce((acc, skill) => {
         const cat = skill.category;
         if (!acc[cat]) acc[cat] = [];
@@ -66,34 +79,35 @@ export default function Skills() {
     return (
         <div className="space-y-8">
             {categoryOrder.map((category, catIdx) => (
-                <motion.div
+                <m.div
                     key={category}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: catIdx * 0.1 }}
+                    viewport={{ once: true, margin: '-30px' }}
+                    transition={{ delay: catIdx * 0.08, duration: 0.4, ease: 'easeOut' }}
                 >
                     <h3 className="text-lg font-semibold text-primary-400 mb-4">
                         {categoryLabels[category]?.[lang] || category}
                     </h3>
-                    <div className="flex flex-wrap gap-3">
-                        {grouped[category]?.map((skill, idx) => {
+                    <m.div
+                        className="flex flex-wrap gap-3"
+                        variants={categoryVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: '-20px' }}
+                    >
+                        {grouped[category]?.map((skill) => {
                             const skillData = skillIcons[skill.icon];
                             const IconComponent = skillData?.icon;
                             const iconColor = skillData?.color || '#8b5cf6';
 
                             return (
-                                <motion.div
+                                <m.div
                                     key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: catIdx * 0.1 + idx * 0.03 }}
-                                    whileHover={{ scale: 1.05, y: -2 }}
+                                    variants={badgeVariants}
+                                    /* whileHover eliminado — CSS .tech-badge:hover maneja el hover */
                                     className="tech-badge"
-                                    style={{
-                                        borderColor: `${iconColor}40`,
-                                    }}
+                                    style={{ borderColor: `${iconColor}40` }}
                                 >
                                     {IconComponent ? (
                                         <IconComponent className="w-4 h-4" style={{ color: iconColor }} />
@@ -104,11 +118,11 @@ export default function Skills() {
                                         />
                                     )}
                                     {skill.name}
-                                </motion.div>
+                                </m.div>
                             );
                         })}
-                    </div>
-                </motion.div>
+                    </m.div>
+                </m.div>
             ))}
         </div>
     );

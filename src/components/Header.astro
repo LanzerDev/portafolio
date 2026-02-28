@@ -1,5 +1,4 @@
 ---
-
 const navItems = [
   {
     title: "Experiencia",
@@ -25,7 +24,7 @@ const navItems = [
     url: "/#sobre-mi",
     titleEn: "About",
   },
-]
+];
 ---
 
 <header
@@ -53,65 +52,65 @@ const navItems = [
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav a");
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-primary-400")
+              item.classList.add("text-primary-400");
             } else {
-              item.classList.remove("text-primary-400")
+              item.classList.remove("text-primary-400");
             }
-          })
+          });
         }
-      })
-    }
+      });
+    };
 
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "0px",
       threshold: 0.3,
-    })
+    });
 
     sections.forEach((section) => {
-      observer.observe(section)
-    })
+      observer.observe(section);
+    });
 
     // Update nav titles on language change
     const updateNavTitles = (lang: string) => {
       navItems.forEach((item) => {
-        const titleEs = item.getAttribute('data-title-es')
-        const titleEn = item.getAttribute('data-title-en')
-        const textEl = item.querySelector('.nav-text')
+        const titleEs = item.getAttribute("data-title-es");
+        const titleEn = item.getAttribute("data-title-en");
+        const textEl = item.querySelector(".nav-text");
         if (textEl) {
-          textEl.textContent = lang === 'en' ? titleEn : titleEs
+          textEl.textContent = lang === "en" ? titleEn : titleEs;
         }
-      })
-    }
+      });
+    };
 
     // Initial load
-    const savedLang = localStorage.getItem('portfolio-lang') || 'es'
-    updateNavTitles(savedLang)
+    const savedLang = localStorage.getItem("portfolio-lang") || "es";
+    updateNavTitles(savedLang);
 
     // Listen for language changes
-    window.addEventListener('languageChange', ((e: CustomEvent) => {
-      updateNavTitles(e.detail)
-    }) as EventListener)
+    window.addEventListener("languageChange", ((e: CustomEvent) => {
+      updateNavTitles(e.detail);
+    }) as EventListener);
 
     // Cleanup function
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect()
+        observer.disconnect();
       } else {
         sections.forEach((section) => {
-          observer.observe(section)
-        })
+          observer.observe(section);
+        });
       }
-    }
-  })
+    };
+  });
 </script>
 
 <style>
@@ -119,6 +118,8 @@ const navItems = [
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
+    /* will-change para pre-promover capa compuesta antes del scroll animation */
+    will-change: background-color, box-shadow;
     @apply bg-slate-900/50;
   }
 
@@ -136,7 +137,7 @@ const navItems = [
   }
 
   .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 50%;

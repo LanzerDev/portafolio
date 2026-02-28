@@ -1,7 +1,6 @@
 'use client';
 
 import { useLanguage } from '../i18n/LanguageContext';
-import { motion } from 'framer-motion';
 import GlassCard from './animations/GlassCard';
 import {
     SiNextdotjs, SiReact, SiAngular, SiHtml5, SiCss3, SiJavascript,
@@ -72,18 +71,17 @@ export default function ExperienceSection() {
 
             <div className="space-y-12">
                 {experiences.map((exp, idx) => (
-                    <motion.div
+                    /* Eliminado el motion.div externo wrapper — GlassCard ya tiene
+                       su propio whileInView. Elimina la doble capa de Framer Motion */
+                    <div
                         key={idx}
-                        initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: '-50px' }}
-                        transition={{ duration: 0.5, delay: idx * 0.1 }}
                         className={`relative md:w-1/2 ${idx % 2 === 0 ? 'md:pr-12' : 'md:ml-auto md:pl-12'}`}
                     >
                         {/* Timeline dot */}
                         <div className={`absolute top-6 w-4 h-4 rounded-full bg-primary-500 glow-primary hidden md:block ${idx % 2 === 0 ? 'right-0 translate-x-1/2 mr-[-8px]' : 'left-0 -translate-x-1/2 ml-[-8px]'}`} />
 
-                        <GlassCard delay={idx * 0.05}>
+                        {/* GlassCard maneja la animación de entrada — no necesita wrapper motion extra */}
+                        <GlassCard delay={idx * 0.07}>
                             {/* Header */}
                             <div className="flex flex-wrap items-start justify-between gap-2 mb-4">
                                 <div>
@@ -125,7 +123,7 @@ export default function ExperienceSection() {
                                 </div>
                             )}
                         </GlassCard>
-                    </motion.div>
+                    </div>
                 ))}
             </div>
         </div>

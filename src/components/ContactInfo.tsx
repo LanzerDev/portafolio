@@ -1,7 +1,7 @@
 'use client';
 
 import { useLanguage } from '../i18n/LanguageContext';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export default function ContactInfo() {
     const { t } = useLanguage();
@@ -66,12 +66,12 @@ export default function ContactInfo() {
     return (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {contactItems.map((item, idx) => (
-                <motion.div
+                <m.div
                     key={item.label}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.05 }}
+                    viewport={{ once: true, margin: '-20px' }}
+                    transition={{ delay: idx * 0.05, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                     {item.href ? (
                         <a
@@ -80,12 +80,12 @@ export default function ContactInfo() {
                             rel={item.external ? 'noopener noreferrer' : undefined}
                             className="flex items-center gap-3 p-4 rounded-xl glass-card group"
                         >
-                            <span className="text-primary-400 group-hover:text-primary-300 transition-colors">
+                            <span className="text-primary-400 group-hover:text-primary-300 transition-colors duration-200">
                                 {item.icon}
                             </span>
                             <div>
                                 <p className="text-xs text-gray-500 uppercase tracking-wider">{item.label}</p>
-                                <p className="text-gray-200 group-hover:text-white transition-colors">{item.value}</p>
+                                <p className="text-gray-200 group-hover:text-white transition-colors duration-200">{item.value}</p>
                             </div>
                         </a>
                     ) : (
@@ -97,7 +97,7 @@ export default function ContactInfo() {
                             </div>
                         </div>
                     )}
-                </motion.div>
+                </m.div>
             ))}
         </div>
     );

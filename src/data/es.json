@@ -150,7 +150,7 @@
         {
             "title": "Sinfila - Backoffice",
             "description": "Plataforma Backoffice en Next.js - Una aplicación para gestionar las sucursales, reservaciones y clientes en los restaurantes.",
-            "image": "/sinfila-backoffice.png",
+            "image": "/sinfila-backoffice.webp",
             "link": "https://admin.sinfila.com.mx",
             "github": "",
             "tags": [
@@ -162,7 +162,7 @@
         {
             "title": "Sinfila - Customer",
             "description": "Plataforma de Reservaciones B2B en Next.js - Una aplicación para crear reservaciones o entrar a fila virtual en restaurantes.",
-            "image": "/sinfila-customer.png",
+            "image": "/sinfila-customer.webp",
             "link": "https://app.sinfila.com.mx",
             "github": "",
             "tags": [
